@@ -7,11 +7,17 @@
     <h1>Dinner Menu</h1>
 
 
-    <h1>Hey, Thank you for ordering {{ @SESSION.food }}
-    for {{ @SESSION.meal}}!</h1>
+    <h1>Hey, Thank you for ordering {{ @SESSION.order->getFood() }}
+        for {{ @SESSION.order->getMeal() }}!</h1>
+
+<!--    <h1>Hey, Thank you for ordering {{ @SESSION.food }}-->
+<!--    for {{ @SESSION.meal}}!</h1>-->
 
 
-    <p>Condiments: {{ @SESSION.condiments }}</p>
+    <check if="{{ !empty(@SESSION.order->getCondiments()) }}">
+    <p>Condiments: {{ @SESSION.order->getCondiments() }}</p>
+    </check>
+<!--    <p>Condiments: {{ @SESSION.condiments }}</p>-->
 
     <a href="order1">Place another order</a>
     <a href="{{ @BASE }}">Home page</a>
